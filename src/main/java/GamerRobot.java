@@ -7,9 +7,21 @@ public class GamerRobot extends Robot {
     }
 
     public void stringPress(String string){
-        for(int i = 0; i < string.length(); i++){
+        for(int i = 0; i < 5; i++){
             keyType(KeyEvent.getExtendedKeyCodeForChar(string.charAt(i)));
         }
+        keyPress(KeyEvent.VK_SHIFT);
+        keyType(KeyEvent.VK_SEMICOLON);
+        keyRelease(KeyEvent.VK_SHIFT);
+        for(int j = 6; j < string.length(); j++){
+            keyType(KeyEvent.getExtendedKeyCodeForChar(string.charAt(j)));
+        }
+    }
+
+    public void paste(){
+        keyPress(KeyEvent.VK_CONTROL);
+        keyType(KeyEvent.VK_V);
+        keyRelease(KeyEvent.VK_CONTROL);
     }
 
     public void delete(int amount){
